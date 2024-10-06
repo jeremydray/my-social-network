@@ -12,28 +12,35 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-
+      validate: {
+        validator: (emailInput) => {
+          return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(emailInput);
+        },
+        message: error => `${error} is not a valid email!`
+      },
     },
-    thoughts: {
-      type: Schema.Types.Array,
-      ref: 'thought'
-    },
-    friends: {
-      type: Schema.Types.Array,
-      ref: 'user'
-    },
-
+    thought: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'thought'
+      }
+    ],
+    friend: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+      }
+    ]
   },
   {
     toJSON: {
       virtuals: true,
     },
-    id: false,
   }
 );
 
 userSchema.virtual('friendCount').get(function () {
-  return this.friends.length;
+  return this.friend.length;
 });
 
 const User = model('user', userSchema);
