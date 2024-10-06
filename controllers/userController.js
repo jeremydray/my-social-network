@@ -2,6 +2,7 @@ const { User } = require('../models');
 
 
 module.exports = {
+
     // Find all users
     async getUsers(req, res) {
         try {
@@ -97,6 +98,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+
     // Remove friend from user
     async deleteFriend(req, res) {
         try {
