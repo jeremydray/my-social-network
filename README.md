@@ -13,6 +13,8 @@
 
   Below is a video demonstrating the use of the application:</br>
   </br>
+  [Video Walkthrough](https://drive.google.com/file/d/1vLmhxNFBeap_ew3sGRuq_9mI3Ekuy7nX/view?usp=sharing)
+  </br>
 
 
   ## 2. Description
